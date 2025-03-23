@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>WebQuiz Leaderboard</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="winner">Results:</h1>
+        <div class="leaderboard">
+            <ul>
+				{% for name in names %}
+					<li>{{ name }}</li>
+				{% endfor %}
+            </ul>
+        </div>
+		<button class="goButton" onclick="window.location.href='/'">Again!</button>
+    </div>
+</body>
+</html>

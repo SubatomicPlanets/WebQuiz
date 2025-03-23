@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>WebQuiz Setup</title>
+</head>
+<body>
+    <div class="container">
+		<h1 class="main-title">Quiz Setup</h1>
+        <h1>Enter a Nickname</h1>
+		<input type="text" id="nameInput" maxlength="30" placeholder="Nickname..." />
+		<button class="goButton" onclick="validateName()">Go</button>
+    </div>
+	<script>
+        function validateName() {
+            const nameInput = document.getElementById('nameInput').value.trim();
+            if (nameInput.length < 2) {
+                alert('Name must be longer than 1 character!');
+				return false;
+            }
+			
+			localStorage.setItem('name', nameInput);
+			window.location.href = "quiz";
+        }
+    </script>
+</body>
+</html>

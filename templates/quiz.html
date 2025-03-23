@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>WebQuiz</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="question">{{ question }}</h1>
+        <div class="button-container">
+            <button class="yes-button" onclick="nextSentence(true)">Yes</button>
+            <button class="no-button" onclick="nextSentence(false)">No</button>
+        </div>
+    </div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+		const socket = io();
+		const nameInput = localStorage.getItem('name')
+		
+		socket.on('got_next', function(data) {
+            document.getElementById('question').innerText = data.sentence;
+			document.querySelectorAll('button').forEach(button => button.disabled=false);
+        });
+		
+        socket.on('load_page', function(data) {
+            window.location.href = data.url;
+        });
+
+        function nextSentence(answer) {
+			document.querySelectorAll('button').forEach(button => button.disabled=true);
+            socket.emit('send_next', {'name': nameInput, 'answer': answer});
+        }
+    </script>
+</body>
+</html>

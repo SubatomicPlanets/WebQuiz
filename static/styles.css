@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.main-title {
+	text-shadow: 3px 3px 3px grey;
+	font-size: 48px;
+	color: #4CAF50;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.yes-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.no-button {
+    background-color: #f44336;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+	background-color: #d3d3d3;
+    color: #a9a9a9;
+    border: 1px solid #a9a9a9;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.winner {
+    font-size: 48px;
+    color: #4CAF50;
+    margin-bottom: 40px;
+}
+
+.leaderboard {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fafafa;
+    scrollbar-width: none; /* For Firefox */
+}
+
+.leaderboard::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.leaderboard ul {
+	margin-top: 0;
+	margin-bottom: 0;
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+.leaderboard li {
+	font-size: 34px;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.leaderboard li:last-child {
+    border-bottom: none;
+}
+
+input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.goButton {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
